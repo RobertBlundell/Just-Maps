@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1210FC91FB3C71800696029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1210FC81FB3C71800696029 /* AppDelegate.swift */; };
+		E1210FCB1FB3C71800696029 /* CustomiseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1210FCA1FB3C71800696029 /* CustomiseVC.swift */; };
+		E1210FCD1FB3C71800696029 /* MyMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1210FCC1FB3C71800696029 /* MyMapVC.swift */; };
+		E1210FD01FB3C71800696029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1210FCE1FB3C71800696029 /* Main.storyboard */; };
+		E1210FD21FB3C71800696029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1210FD11FB3C71800696029 /* Assets.xcassets */; };
+		E1210FD51FB3C71800696029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1210FD31FB3C71800696029 /* LaunchScreen.storyboard */; };
+		E17F446A1FDD603B00019EEC /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F44691FDD603B00019EEC /* FAQVC.swift */; };
+		E17F446C1FDEA33700019EEC /* Blur effect extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F446B1FDEA33700019EEC /* Blur effect extension.swift */; };
+		E17F446E1FDEA8DF00019EEC /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F446D1FDEA8DF00019EEC /* Onboarding.swift */; };
+		E17F44701FDEAA1600019EEC /* onboardingPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F446F1FDEAA1600019EEC /* onboardingPlaceCell.swift */; };
+		E17F44741FDF175700019EEC /* SecretsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F44731FDF175700019EEC /* SecretsArray.swift */; };
+		E17F44761FDF179800019EEC /* WalksArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F44751FDF179800019EEC /* WalksArray.swift */; };
+		E17F44781FDF17BA00019EEC /* MuseumsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F44771FDF17BA00019EEC /* MuseumsArray.swift */; };
+		E17F447A1FDF395500019EEC /* Typecasting & global variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F44791FDF395500019EEC /* Typecasting & global variables.swift */; };
+		E17F447E1FE006AE00019EEC /* Westminster Walk.geojson in Resources */ = {isa = PBXBuildFile; fileRef = E17F447D1FE006AE00019EEC /* Westminster Walk.geojson */; };
+		E1847C891FE52BDC0076ADFB /* PlaceThemeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1847C881FE52BDC0076ADFB /* PlaceThemeSegmentedControl.swift */; };
+		E1AE71B71FB4B86D00D8FD7B /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE71B61FB4B86D00D8FD7B /* PlaceCell.swift */; };
+		E1AE71B91FB4BBBC00D8FD7B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE71B81FB4BBBC00D8FD7B /* Place.swift */; };
+		E1AE71BB1FB4BBF000D8FD7B /* PlacesArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE71BA1FB4BBF000D8FD7B /* PlacesArray.swift */; };
+		E1AF211B1FE02FFF006BDF55 /* The City Walk.geojson in Resources */ = {isa = PBXBuildFile; fileRef = E1AF211A1FE02FFF006BDF55 /* The City Walk.geojson */; };
+		E1AF211F1FE0365E006BDF55 /* Onboarding 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF211E1FE0365E006BDF55 /* Onboarding 2.swift */; };
+		E1AF21211FE0366F006BDF55 /* Onboarding 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21201FE0366F006BDF55 /* Onboarding 3.swift */; };
+		E1AF21231FE05242006BDF55 /* Onboarding 4.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21221FE05242006BDF55 /* Onboarding 4.swift */; };
+		E1AF21251FE07067006BDF55 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21241FE07067006BDF55 /* MyTabBarController.swift */; };
+		E1AF21491FE3F0CB006BDF55 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21481FE3F0CB006BDF55 /* Profile.swift */; };
+		E1E7F8761FE67E64000A30B6 /* tubeMap.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1E7F8751FE67B8D000A30B6 /* tubeMap.pdf */; };
+		E1E7F8781FE67E92000A30B6 /* pdfVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7F8771FE67E92000A30B6 /* pdfVC.swift */; };
+		E1E7F87A1FE68D12000A30B6 /* rotatable protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7F8791FE68D12000A30B6 /* rotatable protocol.swift */; };
+		E1E7F87C1FE7CEFB000A30B6 /* directionToPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7F87B1FE7CEFB000A30B6 /* directionToPlaceModel.swift */; };
+		E1E97AD11FBDD54900491013 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E97AD01FBDD54900491013 /* PlaceDetailView.swift */; };
+		F0EB002B7C3AAB4D4726DAA1 /* Pods_Just_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909285F2835E41A022DCE9B7 /* Pods_Just_Maps.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		909285F2835E41A022DCE9B7 /* Pods_Just_Maps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Just_Maps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BACB6616E0A623D90BC1B122 /* Pods-Just Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Just Maps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Just Maps/Pods-Just Maps.debug.xcconfig"; sourceTree = "<group>"; };
+		DF1EEBC1DC72D9332B6CF4AC /* Pods-Just Maps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Just Maps.release.xcconfig"; path = "Pods/Target Support Files/Pods-Just Maps/Pods-Just Maps.release.xcconfig"; sourceTree = "<group>"; };
+		E1210FC51FB3C71800696029 /* Just Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Just Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1210FC81FB3C71800696029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E1210FCA1FB3C71800696029 /* CustomiseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomiseVC.swift; sourceTree = "<group>"; };
+		E1210FCC1FB3C71800696029 /* MyMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapVC.swift; sourceTree = "<group>"; };
+		E1210FCF1FB3C71800696029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E1210FD11FB3C71800696029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1210FD41FB3C71800696029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E1210FD61FB3C71800696029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E17F44691FDD603B00019EEC /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
+		E17F446B1FDEA33700019EEC /* Blur effect extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blur effect extension.swift"; sourceTree = "<group>"; };
+		E17F446D1FDEA8DF00019EEC /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		E17F446F1FDEAA1600019EEC /* onboardingPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingPlaceCell.swift; sourceTree = "<group>"; };
+		E17F44731FDF175700019EEC /* SecretsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsArray.swift; sourceTree = "<group>"; };
+		E17F44751FDF179800019EEC /* WalksArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalksArray.swift; sourceTree = "<group>"; };
+		E17F44771FDF17BA00019EEC /* MuseumsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumsArray.swift; sourceTree = "<group>"; };
+		E17F44791FDF395500019EEC /* Typecasting & global variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Typecasting & global variables.swift"; sourceTree = "<group>"; };
+		E17F447D1FE006AE00019EEC /* Westminster Walk.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Westminster Walk.geojson"; sourceTree = "<group>"; };
+		E1847C881FE52BDC0076ADFB /* PlaceThemeSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceThemeSegmentedControl.swift; sourceTree = "<group>"; };
+		E1AE71B61FB4B86D00D8FD7B /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		E1AE71B81FB4BBBC00D8FD7B /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		E1AE71BA1FB4BBF000D8FD7B /* PlacesArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesArray.swift; sourceTree = "<group>"; };
+		E1AF211A1FE02FFF006BDF55 /* The City Walk.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "The City Walk.geojson"; sourceTree = "<group>"; };
+		E1AF211E1FE0365E006BDF55 /* Onboarding 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 2.swift"; sourceTree = "<group>"; };
+		E1AF21201FE0366F006BDF55 /* Onboarding 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 3.swift"; sourceTree = "<group>"; };
+		E1AF21221FE05242006BDF55 /* Onboarding 4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 4.swift"; sourceTree = "<group>"; };
+		E1AF21241FE07067006BDF55 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		E1AF21481FE3F0CB006BDF55 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E1E7F8751FE67B8D000A30B6 /* tubeMap.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tubeMap.pdf; sourceTree = "<group>"; };
+		E1E7F8771FE67E92000A30B6 /* pdfVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfVC.swift; sourceTree = "<group>"; };
+		E1E7F8791FE68D12000A30B6 /* rotatable protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "rotatable protocol.swift"; sourceTree = "<group>"; };
+		E1E7F87B1FE7CEFB000A30B6 /* directionToPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = directionToPlaceModel.swift; sourceTree = "<group>"; };
+		E1E97AD01FBDD54900491013 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1210FC21FB3C71800696029 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0EB002B7C3AAB4D4726DAA1 /* Pods_Just_Maps.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E4BABF2BEA308FB091A3A01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BACB6616E0A623D90BC1B122 /* Pods-Just Maps.debug.xcconfig */,
+				DF1EEBC1DC72D9332B6CF4AC /* Pods-Just Maps.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D8D74A5F1D73781F5692C7DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				909285F2835E41A022DCE9B7 /* Pods_Just_Maps.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1210FBC1FB3C71800696029 = {
+			isa = PBXGroup;
+			children = (
+				E1AE71B51FB476E400D8FD7B /* Ressources */,
+				E1AE71B41FB46ED700D8FD7B /* Model */,
+				E1AE71B31FB46ED400D8FD7B /* View */,
+				E1AE71B21FB46ED200D8FD7B /* Controller */,
+				E1210FC71FB3C71800696029 /* Just Maps */,
+				E1210FC61FB3C71800696029 /* Products */,
+				9E4BABF2BEA308FB091A3A01 /* Pods */,
+				D8D74A5F1D73781F5692C7DD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E1210FC61FB3C71800696029 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1210FC51FB3C71800696029 /* Just Maps.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1210FC71FB3C71800696029 /* Just Maps */ = {
+			isa = PBXGroup;
+			children = (
+				E1210FC81FB3C71800696029 /* AppDelegate.swift */,
+				E1210FCE1FB3C71800696029 /* Main.storyboard */,
+				E1210FD31FB3C71800696029 /* LaunchScreen.storyboard */,
+				E1210FD61FB3C71800696029 /* Info.plist */,
+			);
+			path = "Just Maps";
+			sourceTree = "<group>";
+		};
+		E17F447B1FDF464900019EEC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E17F446D1FDEA8DF00019EEC /* Onboarding.swift */,
+				E1AF211E1FE0365E006BDF55 /* Onboarding 2.swift */,
+				E1AF21201FE0366F006BDF55 /* Onboarding 3.swift */,
+				E1AF21221FE05242006BDF55 /* Onboarding 4.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E17F447C1FDF55D200019EEC /* GeoJson walks */ = {
+			isa = PBXGroup;
+			children = (
+				E17F447D1FE006AE00019EEC /* Westminster Walk.geojson */,
+				E1AF211A1FE02FFF006BDF55 /* The City Walk.geojson */,
+			);
+			path = "GeoJson walks";
+			sourceTree = "<group>";
+		};
+		E190F4281FE5E9DE00E244D4 /* pdfs */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7F8751FE67B8D000A30B6 /* tubeMap.pdf */,
+			);
+			path = pdfs;
+			sourceTree = "<group>";
+		};
+		E1AE71B21FB46ED200D8FD7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E17F44691FDD603B00019EEC /* FAQVC.swift */,
+				E1AF21241FE07067006BDF55 /* MyTabBarController.swift */,
+				E1210FCA1FB3C71800696029 /* CustomiseVC.swift */,
+				E1210FCC1FB3C71800696029 /* MyMapVC.swift */,
+				E1AF21481FE3F0CB006BDF55 /* Profile.swift */,
+				E1E97AD01FBDD54900491013 /* PlaceDetailView.swift */,
+				E1E7F8771FE67E92000A30B6 /* pdfVC.swift */,
+				E17F447B1FDF464900019EEC /* Onboarding */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E1AE71B31FB46ED400D8FD7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1847C881FE52BDC0076ADFB /* PlaceThemeSegmentedControl.swift */,
+				E17F446F1FDEAA1600019EEC /* onboardingPlaceCell.swift */,
+				E1AE71B61FB4B86D00D8FD7B /* PlaceCell.swift */,
+				E17F446B1FDEA33700019EEC /* Blur effect extension.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1AE71B41FB46ED700D8FD7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7F87B1FE7CEFB000A30B6 /* directionToPlaceModel.swift */,
+				E1AE71B81FB4BBBC00D8FD7B /* Place.swift */,
+				E17F44791FDF395500019EEC /* Typecasting & global variables.swift */,
+				E1E7F8791FE68D12000A30B6 /* rotatable protocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1AE71B51FB476E400D8FD7B /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				E1210FD11FB3C71800696029 /* Assets.xcassets */,
+				E1AE71BA1FB4BBF000D8FD7B /* PlacesArray.swift */,
+				E17F44731FDF175700019EEC /* SecretsArray.swift */,
+				E17F44751FDF179800019EEC /* WalksArray.swift */,
+				E17F447C1FDF55D200019EEC /* GeoJson walks */,
+				E190F4281FE5E9DE00E244D4 /* pdfs */,
+				E17F44771FDF17BA00019EEC /* MuseumsArray.swift */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1210FC41FB3C71800696029 /* Just Maps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1210FD91FB3C71800696029 /* Build configuration list for PBXNativeTarget "Just Maps" */;
+			buildPhases = (
+				A7D1E940F0A3CD2E942159F6 /* [CP] Check Pods Manifest.lock */,
+				E1210FC11FB3C71800696029 /* Sources */,
+				E1210FC21FB3C71800696029 /* Frameworks */,
+				E1210FC31FB3C71800696029 /* Resources */,
+				BE218AAD7043A957071ED5FD /* [CP] Embed Pods Frameworks */,
+				8FBA3609EAAB767A12C6DECE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Just Maps";
+			productName = JustaMapp;
+			productReference = E1210FC51FB3C71800696029 /* Just Maps.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1210FBD1FB3C71800696029 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Robert Blundell";
+				TargetAttributes = {
+					E1210FC41FB3C71800696029 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E1210FC01FB3C71800696029 /* Build configuration list for PBXProject "Just Maps" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1210FBC1FB3C71800696029;
+			productRefGroup = E1210FC61FB3C71800696029 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1210FC41FB3C71800696029 /* Just Maps */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1210FC31FB3C71800696029 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E7F8761FE67E64000A30B6 /* tubeMap.pdf in Resources */,
+				E1210FD51FB3C71800696029 /* LaunchScreen.storyboard in Resources */,
+				E1210FD21FB3C71800696029 /* Assets.xcassets in Resources */,
+				E1AF211B1FE02FFF006BDF55 /* The City Walk.geojson in Resources */,
+				E1210FD01FB3C71800696029 /* Main.storyboard in Resources */,
+				E17F447E1FE006AE00019EEC /* Westminster Walk.geojson in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8FBA3609EAAB767A12C6DECE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Just Maps/Pods-Just Maps-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7D1E940F0A3CD2E942159F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Just Maps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE218AAD7043A957071ED5FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Just Maps/Pods-Just Maps-frameworks.sh",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Just Maps/Pods-Just Maps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1210FC11FB3C71800696029 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E7F87C1FE7CEFB000A30B6 /* directionToPlaceModel.swift in Sources */,
+				E1210FCD1FB3C71800696029 /* MyMapVC.swift in Sources */,
+				E1AF21251FE07067006BDF55 /* MyTabBarController.swift in Sources */,
+				E17F44781FDF17BA00019EEC /* MuseumsArray.swift in Sources */,
+				E1AF211F1FE0365E006BDF55 /* Onboarding 2.swift in Sources */,
+				E1AF21491FE3F0CB006BDF55 /* Profile.swift in Sources */,
+				E17F44741FDF175700019EEC /* SecretsArray.swift in Sources */,
+				E17F44761FDF179800019EEC /* WalksArray.swift in Sources */,
+				E1E7F8781FE67E92000A30B6 /* pdfVC.swift in Sources */,
+				E1AE71B71FB4B86D00D8FD7B /* PlaceCell.swift in Sources */,
+				E17F446E1FDEA8DF00019EEC /* Onboarding.swift in Sources */,
+				E1210FC91FB3C71800696029 /* AppDelegate.swift in Sources */,
+				E1E97AD11FBDD54900491013 /* PlaceDetailView.swift in Sources */,
+				E1210FCB1FB3C71800696029 /* CustomiseVC.swift in Sources */,
+				E1AE71B91FB4BBBC00D8FD7B /* Place.swift in Sources */,
+				E17F447A1FDF395500019EEC /* Typecasting & global variables.swift in Sources */,
+				E1AE71BB1FB4BBF000D8FD7B /* PlacesArray.swift in Sources */,
+				E17F446C1FDEA33700019EEC /* Blur effect extension.swift in Sources */,
+				E1847C891FE52BDC0076ADFB /* PlaceThemeSegmentedControl.swift in Sources */,
+				E1AF21231FE05242006BDF55 /* Onboarding 4.swift in Sources */,
+				E17F44701FDEAA1600019EEC /* onboardingPlaceCell.swift in Sources */,
+				E17F446A1FDD603B00019EEC /* FAQVC.swift in Sources */,
+				E1AF21211FE0366F006BDF55 /* Onboarding 3.swift in Sources */,
+				E1E7F87A1FE68D12000A30B6 /* rotatable protocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E1210FCE1FB3C71800696029 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1210FCF1FB3C71800696029 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E1210FD31FB3C71800696029 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1210FD41FB3C71800696029 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1210FD71FB3C71800696029 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1210FD81FB3C71800696029 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1210FDA1FB3C71800696029 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BACB6616E0A623D90BC1B122 /* Pods-Just Maps.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRV39VDR6N;
+				INFOPLIST_FILE = "$(SRCROOT)/Just Maps/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = robertblundell.com.JustaMapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E1210FDB1FB3C71800696029 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF1EEBC1DC72D9332B6CF4AC /* Pods-Just Maps.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRV39VDR6N;
+				INFOPLIST_FILE = "$(SRCROOT)/Just Maps/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = robertblundell.com.JustaMapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1210FC01FB3C71800696029 /* Build configuration list for PBXProject "Just Maps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1210FD71FB3C71800696029 /* Debug */,
+				E1210FD81FB3C71800696029 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1210FD91FB3C71800696029 /* Build configuration list for PBXNativeTarget "Just Maps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1210FDA1FB3C71800696029 /* Debug */,
+				E1210FDB1FB3C71800696029 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1210FBD1FB3C71800696029 /* Project object */;
+}

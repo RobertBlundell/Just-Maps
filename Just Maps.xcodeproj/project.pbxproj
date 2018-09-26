@@ -27,11 +27,9 @@
 		E1AE71B91FB4BBBC00D8FD7B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE71B81FB4BBBC00D8FD7B /* Place.swift */; };
 		E1AE71BB1FB4BBF000D8FD7B /* PlacesArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE71BA1FB4BBF000D8FD7B /* PlacesArray.swift */; };
 		E1AF211B1FE02FFF006BDF55 /* The City Walk.geojson in Resources */ = {isa = PBXBuildFile; fileRef = E1AF211A1FE02FFF006BDF55 /* The City Walk.geojson */; };
-		E1AF211F1FE0365E006BDF55 /* Onboarding 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF211E1FE0365E006BDF55 /* Onboarding 2.swift */; };
-		E1AF21211FE0366F006BDF55 /* Onboarding 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21201FE0366F006BDF55 /* Onboarding 3.swift */; };
-		E1AF21231FE05242006BDF55 /* Onboarding 4.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21221FE05242006BDF55 /* Onboarding 4.swift */; };
 		E1AF21251FE07067006BDF55 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21241FE07067006BDF55 /* MyTabBarController.swift */; };
 		E1AF21491FE3F0CB006BDF55 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF21481FE3F0CB006BDF55 /* Profile.swift */; };
+		E1B8FA0C215BE689001AB5DF /* InterestsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8FA0B215BE689001AB5DF /* InterestsArray.swift */; };
 		E1E7F8761FE67E64000A30B6 /* tubeMap.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1E7F8751FE67B8D000A30B6 /* tubeMap.pdf */; };
 		E1E7F8781FE67E92000A30B6 /* pdfVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7F8771FE67E92000A30B6 /* pdfVC.swift */; };
 		E1E7F87A1FE68D12000A30B6 /* rotatable protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7F8791FE68D12000A30B6 /* rotatable protocol.swift */; };
@@ -66,11 +64,9 @@
 		E1AE71B81FB4BBBC00D8FD7B /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		E1AE71BA1FB4BBF000D8FD7B /* PlacesArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesArray.swift; sourceTree = "<group>"; };
 		E1AF211A1FE02FFF006BDF55 /* The City Walk.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "The City Walk.geojson"; sourceTree = "<group>"; };
-		E1AF211E1FE0365E006BDF55 /* Onboarding 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 2.swift"; sourceTree = "<group>"; };
-		E1AF21201FE0366F006BDF55 /* Onboarding 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 3.swift"; sourceTree = "<group>"; };
-		E1AF21221FE05242006BDF55 /* Onboarding 4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 4.swift"; sourceTree = "<group>"; };
 		E1AF21241FE07067006BDF55 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		E1AF21481FE3F0CB006BDF55 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E1B8FA0B215BE689001AB5DF /* InterestsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsArray.swift; sourceTree = "<group>"; };
 		E1E7F8751FE67B8D000A30B6 /* tubeMap.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tubeMap.pdf; sourceTree = "<group>"; };
 		E1E7F8771FE67E92000A30B6 /* pdfVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfVC.swift; sourceTree = "<group>"; };
 		E1E7F8791FE68D12000A30B6 /* rotatable protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "rotatable protocol.swift"; sourceTree = "<group>"; };
@@ -144,9 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				E17F446D1FDEA8DF00019EEC /* Onboarding.swift */,
-				E1AF211E1FE0365E006BDF55 /* Onboarding 2.swift */,
-				E1AF21201FE0366F006BDF55 /* Onboarding 3.swift */,
-				E1AF21221FE05242006BDF55 /* Onboarding 4.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -199,6 +192,7 @@
 			children = (
 				E1E7F87B1FE7CEFB000A30B6 /* directionToPlaceModel.swift */,
 				E1AE71B81FB4BBBC00D8FD7B /* Place.swift */,
+				E1B8FA0B215BE689001AB5DF /* InterestsArray.swift */,
 				E17F44791FDF395500019EEC /* Typecasting & global variables.swift */,
 				E1E7F8791FE68D12000A30B6 /* rotatable protocol.swift */,
 			);
@@ -212,9 +206,9 @@
 				E1AE71BA1FB4BBF000D8FD7B /* PlacesArray.swift */,
 				E17F44731FDF175700019EEC /* SecretsArray.swift */,
 				E17F44751FDF179800019EEC /* WalksArray.swift */,
+				E17F44771FDF17BA00019EEC /* MuseumsArray.swift */,
 				E17F447C1FDF55D200019EEC /* GeoJson walks */,
 				E190F4281FE5E9DE00E244D4 /* pdfs */,
-				E17F44771FDF17BA00019EEC /* MuseumsArray.swift */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -358,7 +352,6 @@
 				E1210FCD1FB3C71800696029 /* MyMapVC.swift in Sources */,
 				E1AF21251FE07067006BDF55 /* MyTabBarController.swift in Sources */,
 				E17F44781FDF17BA00019EEC /* MuseumsArray.swift in Sources */,
-				E1AF211F1FE0365E006BDF55 /* Onboarding 2.swift in Sources */,
 				E1AF21491FE3F0CB006BDF55 /* Profile.swift in Sources */,
 				E17F44741FDF175700019EEC /* SecretsArray.swift in Sources */,
 				E17F44761FDF179800019EEC /* WalksArray.swift in Sources */,
@@ -368,15 +361,14 @@
 				E1210FC91FB3C71800696029 /* AppDelegate.swift in Sources */,
 				E1E97AD11FBDD54900491013 /* PlaceDetailView.swift in Sources */,
 				E1210FCB1FB3C71800696029 /* CustomiseVC.swift in Sources */,
+				E1B8FA0C215BE689001AB5DF /* InterestsArray.swift in Sources */,
 				E1AE71B91FB4BBBC00D8FD7B /* Place.swift in Sources */,
 				E17F447A1FDF395500019EEC /* Typecasting & global variables.swift in Sources */,
 				E1AE71BB1FB4BBF000D8FD7B /* PlacesArray.swift in Sources */,
 				E17F446C1FDEA33700019EEC /* Blur effect extension.swift in Sources */,
 				E1847C891FE52BDC0076ADFB /* PlaceThemeSegmentedControl.swift in Sources */,
-				E1AF21231FE05242006BDF55 /* Onboarding 4.swift in Sources */,
 				E17F44701FDEAA1600019EEC /* onboardingPlaceCell.swift in Sources */,
 				E17F446A1FDD603B00019EEC /* FAQVC.swift in Sources */,
-				E1AF21211FE0366F006BDF55 /* Onboarding 3.swift in Sources */,
 				E1E7F87A1FE68D12000A30B6 /* rotatable protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

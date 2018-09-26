@@ -15,9 +15,9 @@ class onboardingPlaceCell: UICollectionViewCell {
     
     
     
-    func configureCellVisuals(place: Place) {
-        onboardingPlaceName.text = place.title
-        onboardingPlaceImage.image = place.placeImage
+    func configureCellVisuals(interest: Interest) {
+        onboardingPlaceName.text = interest.interestName
+        onboardingPlaceImage.image = interest.interestImage
     }
  
     

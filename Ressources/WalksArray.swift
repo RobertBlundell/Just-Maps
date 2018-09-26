@@ -24,6 +24,8 @@ private var westminsterWalk = Place(latitude: 51.501148,
                                     placeType: .walk,
                                     placeImage: #imageLiteral(resourceName: "London route 1"))
 
+
+
 private var theCityWalk = Place(latitude: 51.507121,
                                 longitude: -0.074325,
                                 title: "The City Walk",

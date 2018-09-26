@@ -190,4 +190,3 @@ class CustomizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         print("Setting up function is running")
     }
 }
-

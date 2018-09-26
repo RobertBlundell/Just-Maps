@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//Testing 123
+
 enum PlaceType {
     case pointOfInterest
     case church

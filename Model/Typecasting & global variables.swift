@@ -10,4 +10,5 @@ import Foundation
 
 let defaults = UserDefaults.standard
 
- var directionsToPlaceArray: [directionToPlace]!
+var directionsToPlaceArray: [directionToPlace]!
+

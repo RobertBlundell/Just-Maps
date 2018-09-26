@@ -19,10 +19,12 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     @IBOutlet weak var placeTitleLabel: UILabel!
     @IBOutlet weak var descriptionTitleLabel: UILabel!
     @IBOutlet weak var placeViewToBottom: NSLayoutConstraint!
+    @IBOutlet weak var greenSliderPlaceView: NSLayoutConstraint!
     @IBOutlet weak var placePopupImage: UIImageView!
     @IBOutlet weak var placeView: UIView!
+    @IBOutlet weak var placeViewTwo: UIView!
     @IBOutlet weak var tubeButtonView: UIView!
-    
+    @IBOutlet weak var directionsViewTemporary: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
 
     private var placeSelectedMap: Place!
@@ -47,7 +49,11 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
         
         searchBar.backgroundImage = UIImage()
         
-        self.placeView.addBlurEffectNormalView()
+        self.placeViewTwo.addBlurEffectNormalView()
+        //Challenge: program in a shadow
+//        self.placeViewTwo.accessibilityPath = UIBezierPath(roundedRect: self.placeViewTwo.bounds, cornerRadius: 15)
+        
+        
         self.view.bringSubviewToFront(placeView)
         self.view.bringSubviewToFront(tubeButtonView)
         
@@ -97,7 +103,7 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
         if mapView.selectedAnnotations.count == 0 {
             placeViewToBottom.constant = -140
         } else {
-            placeViewToBottom.constant = 49
+            placeViewToBottom.constant = 34
         }
     }
     
@@ -112,12 +118,26 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     }
     
     
+    @IBAction func locationPressed(_ sender: Any) {
+        greenSliderPlaceView.constant = 2
+        UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
+        directionsViewTemporary.isHidden = true
+    }
+    
+    @IBAction func directionsPressed(_ sender: Any) {
+        let sliderDisplacement = view.frame.size.width / 2 - 86
+        greenSliderPlaceView.constant = sliderDisplacement
+        UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
+        directionsViewTemporary.isHidden = false
+    }
+    
+    
     // Coding directions!
     
-    @IBAction func Getdirectionsbutton(_ sender: Any) {
-        placeSelectedMap.directionAPICallAndParse()
-    
-    }
+    //    @IBAction func Getdirectionsbutton(_ sender: Any) {
+    //        placeSelectedMap.directionAPICallAndParse()
+    //
+    //    }
     
 
     
@@ -155,7 +175,7 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
 
     
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        placeViewToBottom.constant = 49
+        placeViewToBottom.constant = 34
         UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
         let viewSquareImage = (annotation as? JustMapsPointAnnotation)?.place.placeImage
         placePopupImage.image = viewSquareImage
@@ -195,9 +215,9 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     // func to draw the walk
     
     func drawWalk(walkName: String) {
-        
+
         print("drawing walk")
-        
+
         DispatchQueue.global(qos: .background).async(execute: {
 
             if let jsonPath = Bundle.main.path(forResource: walkName, ofType: "geojson"){
@@ -218,10 +238,12 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
             }
         })
     }
-    
+
     func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
         return UIColor(red: 122/255, green: 191/255, blue: 47/255, alpha: 1)
     }
+    
+    
     
     //Offline maps:
     //Start

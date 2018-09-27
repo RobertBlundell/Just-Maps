@@ -14,16 +14,19 @@ class PlaceCell: UITableViewCell {
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placeShortDescription: UILabel!
     @IBOutlet weak var placeSelectorButton: UIButton!
+    @IBOutlet weak var moreInfoButton: IndexButton!
     
-    func configureCellVisuals(place: Place) {
+    
+    func configureCellVisuals(place: Place, indexpath: IndexPath) {
         placeName.text = place.title
         placeShortDescription.text = place.placeDescription
         placeImage.image = place.placeImage
         
         if defaults.bool(forKey: placeName.text!) == true {
-            placeSelectorButton.setImage(#imageLiteral(resourceName: "Selected Button"), for: .normal)
-        } else { placeSelectorButton.setImage(#imageLiteral(resourceName: "Select Button"), for: .normal) }
+            placeSelectorButton.setImage(#imageLiteral(resourceName: "Remove"), for: .normal)
+        } else { placeSelectorButton.setImage(#imageLiteral(resourceName: "Add to Map"), for: .normal) }
         
+        moreInfoButton.indexPath = indexpath
     }
     
     @IBAction func placeSelectorButtonPressed(_ sender: Any) {
@@ -32,8 +35,10 @@ class PlaceCell: UITableViewCell {
         defaults.set(!oldValue, forKey: placeName.text!)
         
         if defaults.bool(forKey: placeName.text!) == true {
-            placeSelectorButton.setImage(#imageLiteral(resourceName: "Selected Button"), for: .normal)
-        } else { placeSelectorButton.setImage(#imageLiteral(resourceName: "Select Button"), for: .normal) }
+            placeSelectorButton.setImage(#imageLiteral(resourceName: "Remove"), for: .normal)
+        } else { placeSelectorButton.setImage(#imageLiteral(resourceName: "Add to Map"), for: .normal) }
     }
+    
+    
     
 }

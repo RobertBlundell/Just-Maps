@@ -31,11 +31,6 @@ class CustomizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         selectionBarWidth.constant = view.frame.size.width / 5
         segmentPlaces.removeBorders()
-            
-        // This needs to be deleted soon enough, will be done in app delegate/onboarding screens. instead of default use lack of "true" bool results within places.
-        if defaults.bool(forKey: "JustMapsIsSetup") == false {
-            setupJustMaps()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,65 +64,97 @@ class CustomizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellforRowAt running")
         let cell = placesTableView.dequeueReusableCell(withIdentifier: "PlaceCell") as? PlaceCell
         configureCell(cell: cell!, indexPath: indexPath)
         return cell!
     }
     
     private func configureCell(cell: PlaceCell, indexPath: IndexPath) {
-        print("configure cell running")
         if segmentPlaces.selectedSegmentIndex == 0 {
             var isSelectedForMapCount = 0
             for place in allPlaces {
                 if defaults.bool(forKey: place.title) == true {
                     if isSelectedForMapCount == indexPath.row {
-                        cell.configureCellVisuals(place: place)
+                        cell.configureCellVisuals(place: place, indexpath: indexPath)
                     }
                     isSelectedForMapCount += 1
                 }
             }
         } else if segmentPlaces.selectedSegmentIndex == 1 {
             let place = places[indexPath.row]
-            cell.configureCellVisuals(place: place)
+            cell.configureCellVisuals(place: place, indexpath: indexPath)
         } else if segmentPlaces.selectedSegmentIndex == 2 {
             let place = Secrets[indexPath.row]
-            cell.configureCellVisuals(place: place)
+            cell.configureCellVisuals(place: place, indexpath: indexPath)
         } else if segmentPlaces.selectedSegmentIndex == 3 {
             print(Walks[indexPath.row].title)
             let place = Walks[indexPath.row]
-            cell.configureCellVisuals(place: place)
+            cell.configureCellVisuals(place: place, indexpath: indexPath)
         } else if segmentPlaces.selectedSegmentIndex == 4 {
             let place = Museums[indexPath.row]
-            cell.configureCellVisuals(place: place)
+            cell.configureCellVisuals(place: place, indexpath: indexPath)
         }
     }
-
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    @IBAction func moreInfoPressed(_ button: IndexButton) {
         
         if segmentPlaces.selectedSegmentIndex == 0 {
             for place in allPlaces {
-                let placeCell = placesTableView.cellForRow(at: indexPath) as? PlaceCell
+                let placeCell = placesTableView.cellForRow(at: button.indexPath ) as? PlaceCell
                 if placeCell?.placeName.text == place.title {
                     segueSelectedPlace = place
                     performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
                 }
             }
         } else if segmentPlaces.selectedSegmentIndex == 1 {
-            segueSelectedPlace = places[indexPath.row]
+            segueSelectedPlace = places[button.indexPath.row]
             performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
         } else if segmentPlaces.selectedSegmentIndex == 2 {
-            segueSelectedPlace = Secrets[indexPath.row]
+            segueSelectedPlace = Secrets[button.indexPath.row]
             performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
         } else if segmentPlaces.selectedSegmentIndex == 3 {
-            segueSelectedPlace = Walks[indexPath.row]
+            segueSelectedPlace = Walks[button.indexPath.row]
             performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
         } else if segmentPlaces.selectedSegmentIndex == 4 {
-            segueSelectedPlace = Museums[indexPath.row]
+            segueSelectedPlace = Museums[button.indexPath.row]
             performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
         }
+
+        
+        
+    }
     
+    
+    
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+//          TO BE DELETED:
+//        if segmentPlaces.selectedSegmentIndex == 0 {
+//            for place in allPlaces {
+//                let placeCell = placesTableView.cellForRow(at: indexPath) as? PlaceCell
+//                if placeCell?.placeName.text == place.title {
+//                    segueSelectedPlace = place
+//                    performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
+//                }
+//            }
+//        } else if segmentPlaces.selectedSegmentIndex == 1 {
+//            segueSelectedPlace = places[indexPath.row]
+//            performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
+//        } else if segmentPlaces.selectedSegmentIndex == 2 {
+//            segueSelectedPlace = Secrets[indexPath.row]
+//            performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
+//        } else if segmentPlaces.selectedSegmentIndex == 3 {
+//            segueSelectedPlace = Walks[indexPath.row]
+//            performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
+//        } else if segmentPlaces.selectedSegmentIndex == 4 {
+//            segueSelectedPlace = Museums[indexPath.row]
+//            performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)
+//        }
+//    
         placesTableView.deselectRow(at: indexPath, animated: false)
     }
     
@@ -159,34 +186,5 @@ class CustomizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 }
             }
         }
-    }
-
-    
-    // This needs to be deleted soon enough, will be done in app delegate/onboarding screens.
-    
-    
-    // DELETE??
-    
-    
-    
-    // DELETE??
-    
-    func setupJustMaps() {
-        for place in places {
-            defaults.set(false, forKey: place.title)
-        }
-        // Without next lines, the selection on secrets was extremely weird.
-        for place in Secrets {
-            defaults.set(false, forKey: place.title)
-        }
-        for place in Walks {
-            defaults.set(false, forKey: place.title)
-        }
-        for place in Museums {
-            defaults.set(false, forKey: place.title)
-        }
-        
-        defaults.set(true, forKey: "JustMapsIsSetup")
-        print("Setting up function is running")
     }
 }

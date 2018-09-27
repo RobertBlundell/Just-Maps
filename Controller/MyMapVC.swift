@@ -26,6 +26,8 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     @IBOutlet weak var tubeButtonView: UIView!
     @IBOutlet weak var directionsViewTemporary: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var locationSelectorButton: UIButton!
+    
 
     private var placeSelectedMap: Place!
     private var mapView: MGLMapView!
@@ -78,33 +80,10 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
-        if let currentAnnotations = mapView.annotations {
-             mapView.removeAnnotations(currentAnnotations)
-        }
-        
-        for place in allPlaces {
-            if defaults.bool(forKey: place.title) == true {
-                let point = JustMapsPointAnnotation()
-                point.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
-                point.placeType = place.placeType
-                point.place = place
-                
-                if place.placeType == .walk {
-                    drawWalk(walkName: place.title)
-                }
-                
-                mapView.addAnnotation(point)
-            }
-        }
-        
-        print(mapView.selectedAnnotations.count)
-        
-        if mapView.selectedAnnotations.count == 0 {
-            placeViewToBottom.constant = -140
-        } else {
-            placeViewToBottom.constant = 34
-        }
+      
+        reloadAnnotations()
+
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,14 +110,21 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
         directionsViewTemporary.isHidden = false
     }
     
+    @IBAction func placeSelectButtonPressed(_ sender: Any) {
+        
+        let oldValue = defaults.bool(forKey: placeSelectedMap.title)
+        defaults.set(!oldValue, forKey: placeSelectedMap.title)
+        
+        if defaults.bool(forKey: placeSelectedMap.title) == true {
+            locationSelectorButton.setImage(#imageLiteral(resourceName: "Remove(long)"), for: .normal)
+        } else { locationSelectorButton.setImage(#imageLiteral(resourceName: "AddToMap(long)"), for: .normal) }
+        
+        reloadAnnotations()
+        placeViewToBottom.constant = 34
+        placeView.layer.removeAllAnimations()
+    }
     
-    // Coding directions!
-    
-    //    @IBAction func Getdirectionsbutton(_ sender: Any) {
-    //        placeSelectedMap.directionAPICallAndParse()
-    //
-    //    }
-    
+
 
     
     @objc(mapView:imageForAnnotation:)
@@ -175,13 +161,25 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
 
     
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        
+        //Create a updateSLideGraphics function
+        //On selection in the tableView, slideGraphics should change as well
+        //Also make sure placeSelectedMap gets changed as well
+        // Or instead do two things: One center map on selected place Two click on center of screen
         placeViewToBottom.constant = 34
         UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
         let viewSquareImage = (annotation as? JustMapsPointAnnotation)?.place.placeImage
         placePopupImage.image = viewSquareImage
-        placeTitleLabel.text = (annotation as? JustMapsPointAnnotation)?.place.title
+        let placeTitle = (annotation as? JustMapsPointAnnotation)?.place.title
+        placeTitleLabel.text = placeTitle
         descriptionTitleLabel.text = (annotation as? JustMapsPointAnnotation)?.place.placeDescription
-
+        
+        if defaults.bool(forKey: placeTitle!) == true {
+            locationSelectorButton.setImage(#imageLiteral(resourceName: "Remove(long)"), for: .normal)
+        } else { locationSelectorButton.setImage(#imageLiteral(resourceName: "AddToMap(long)"), for: .normal) }
+        //previous stuff can go in a updateSLideGraphics function
+        
+        
         let placeAnnotation = annotation as? JustMapsPointAnnotation
         placeSelectedMap = placeAnnotation?.place
         
@@ -243,6 +241,27 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
         return UIColor(red: 122/255, green: 191/255, blue: 47/255, alpha: 1)
     }
     
+    func reloadAnnotations() {
+        
+        if let currentAnnotations = mapView.annotations {
+             mapView.removeAnnotations(currentAnnotations)
+        }
+
+        for place in allPlaces {
+            if defaults.bool(forKey: place.title) == true {
+                let point = JustMapsPointAnnotation()
+                point.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                point.placeType = place.placeType
+                point.place = place
+
+                if place.placeType == .walk {
+                    drawWalk(walkName: place.title)
+                }
+
+                mapView.addAnnotation(point)
+            }
+        }
+    }
     
     
     //Offline maps:
@@ -304,13 +323,13 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
                 let frame = view.bounds.size
                 
                 dim = UIView()
-                dim.frame = CGRect(x: (frame.width / 4 - 15), y: (frame.height * 0.75 - 15), width: (frame.width / 2 + 30), height: 68)
+                dim.frame = CGRect(x: (frame.width / 4 - 15), y: (frame.height * 0.15 - 15), width: (frame.width / 2 + 30), height: 68)
                 dim.backgroundColor = UIColor(red: 30/250, green: 30/250, blue: 30/250, alpha: 0.8)
                 dim.layer.cornerRadius = 4
                 view.addSubview(dim)
                 
                 mapDownloadMessage = UILabel()
-                mapDownloadMessage.frame = CGRect(x: (frame.width / 4 - 13), y: (frame.height * 0.75), width: (frame.width / 2 + 26), height: 50)
+                mapDownloadMessage.frame = CGRect(x: (frame.width / 4 - 13), y: (frame.height * 0.15), width: (frame.width / 2 + 26), height: 50)
                 mapDownloadMessage.numberOfLines = 2
                 mapDownloadMessage.text = "Offline map downloading, this may take up to a minute."
                 mapDownloadMessage.textColor = UIColor.white
@@ -319,7 +338,7 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
                 view.addSubview(mapDownloadMessage)
                 
                 progressView = UIProgressView(progressViewStyle: .default)
-                progressView.frame = CGRect(x: frame.width / 4, y: frame.height * 0.75, width: frame.width / 2, height: 10)
+                progressView.frame = CGRect(x: frame.width / 4, y: frame.height * 0.15, width: frame.width / 2, height: 10)
                 view.addSubview(progressView)
             }
             

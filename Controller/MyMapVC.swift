@@ -14,7 +14,7 @@ class JustMapsPointAnnotation: MGLPointAnnotation {
     var place: Place!
 }
 
-class MyMapVC: UIViewController, MGLMapViewDelegate {
+class MyMapVC: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var placeTitleLabel: UILabel!
     @IBOutlet weak var descriptionTitleLabel: UILabel!
@@ -27,8 +27,10 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     @IBOutlet weak var directionsViewTemporary: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var locationSelectorButton: UIButton!
+    @IBOutlet weak var searchTableView: UITableView!
+    @IBOutlet weak var containerViewForSearchTableView: UIView!
     
-
+    
     private var placeSelectedMap: Place!
     private var mapView: MGLMapView!
     
@@ -38,9 +40,22 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     private var dim: UIView!
     private var mapDownloadMessage: UILabel!
     private var temporaryAnnotation: MGLPointAnnotation!
+    private var insearchmode: Bool = false
+    // Rearrange code in SearchBarCell to make following var private??
+    var allPlacesSearched: [Place] = []
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchTableView.delegate = self
+        searchTableView.dataSource = self
+        searchTableView.rowHeight = 40
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
+
         
         mapView = MGLMapView(frame: view.bounds)
         mapView.delegate = self
@@ -52,12 +67,12 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
         searchBar.backgroundImage = UIImage()
         
         self.placeViewTwo.addBlurEffectNormalView()
-        //Challenge: program in a shadow
-//        self.placeViewTwo.accessibilityPath = UIBezierPath(roundedRect: self.placeViewTwo.bounds, cornerRadius: 15)
         
         
         self.view.bringSubviewToFront(placeView)
         self.view.bringSubviewToFront(tubeButtonView)
+        self.view.bringSubviewToFront(containerViewForSearchTableView)
+        containerViewForSearchTableView.addBlurEffectNormalView()
         
         //Offline Maps:
         
@@ -94,8 +109,57 @@ class MyMapVC: UIViewController, MGLMapViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
+         // TODO: set a new status bar style in every view did appear for the sake of consistency/ease. 
     }
     
+    
+    
+    // TABLE VIEW STUFF HERE
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if insearchmode{
+            return allPlacesSearched.count
+        } else { return allPlaces.count}
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? SearchBarCell {
+            if insearchmode{
+                cell.configureSearchCell(cell: cell, indexPath: indexPath, array: allPlacesSearched)
+                    return cell
+            } else {
+                cell.configureSearchCell(cell: cell, indexPath: indexPath, array: allPlaces)
+                    return cell
+            }
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        containerViewForSearchTableView.isHidden = false
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        containerViewForSearchTableView.isHidden = true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == "" || searchBar.text == nil {
+            insearchmode = false
+            searchTableView.reloadData()
+            
+        } else {
+            insearchmode = true
+            
+            let lower = searchBar.text?.lowercased()
+            allPlacesSearched = allPlaces.filter({$0.title.localizedStandardRange(of: lower!) != nil})
+            searchTableView.reloadData()
+        }
+    }
+    
+    //END OF TABLE VIEW
     
     @IBAction func locationPressed(_ sender: Any) {
         greenSliderPlaceView.constant = 2

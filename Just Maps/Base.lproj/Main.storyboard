@@ -198,8 +198,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1b0-2h-zLy">
-                                <rect key="frame" x="0.0" y="300" width="375" height="185"/>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1b0-2h-zLy">
+                                <rect key="frame" x="0.0" y="622" width="375" height="185"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdW-go-Q1q">
                                         <rect key="frame" x="0.0" y="25" width="375" height="160"/>
@@ -434,20 +434,102 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpY-oL-Agt" userLabel="View for Table">
+                                <rect key="frame" x="6" y="70" width="363" height="200"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v46-Rb-Rvh">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="t6O-tU-P3m" customClass="SearchBarCell" customModule="Just_Maps" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="363" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t6O-tU-P3m" id="khy-et-IOv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="363" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Museum" translatesAutoresizingMaskIntoConstraints="NO" id="iww-IS-85C" userLabel="Icon">
+                                                            <rect key="frame" x="6" y="6" width="31.5" height="31.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="iww-IS-85C" secondAttribute="height" multiplier="1:1" id="gGc-lu-Fc0"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uag-RG-fQp">
+                                                            <rect key="frame" x="43.5" y="0.0" width="319.5" height="43.5"/>
+                                                            <state key="normal" title="Title">
+                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Uag-RG-fQp" secondAttribute="trailing" id="1jO-Qh-gup"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Uag-RG-fQp" secondAttribute="bottom" id="Hp4-UK-tCr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="iww-IS-85C" secondAttribute="bottom" constant="6" id="WVm-vh-9Lb"/>
+                                                        <constraint firstItem="iww-IS-85C" firstAttribute="top" secondItem="khy-et-IOv" secondAttribute="top" constant="6" id="moE-WC-E3X"/>
+                                                        <constraint firstItem="Uag-RG-fQp" firstAttribute="leading" secondItem="iww-IS-85C" secondAttribute="trailing" constant="6" id="mxb-9M-HKf"/>
+                                                        <constraint firstItem="iww-IS-85C" firstAttribute="leading" secondItem="khy-et-IOv" secondAttribute="leading" constant="6" id="nzG-Df-cV5"/>
+                                                        <constraint firstItem="Uag-RG-fQp" firstAttribute="top" secondItem="khy-et-IOv" secondAttribute="top" id="o35-wc-rtD"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="searchCellIcon" destination="iww-IS-85C" id="W8k-D8-t8h"/>
+                                                    <outlet property="searchCellTitleButton" destination="Uag-RG-fQp" id="cEZ-fJ-ivH"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="0.0" height="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.78000000000000003" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="v46-Rb-Rvh" secondAttribute="bottom" id="6e5-pk-ZGV"/>
+                                    <constraint firstItem="v46-Rb-Rvh" firstAttribute="leading" secondItem="qpY-oL-Agt" secondAttribute="leading" id="a1v-rm-cva"/>
+                                    <constraint firstAttribute="height" constant="200" id="acC-FP-EV4"/>
+                                    <constraint firstItem="v46-Rb-Rvh" firstAttribute="top" secondItem="qpY-oL-Agt" secondAttribute="top" id="bOR-zW-Omo"/>
+                                    <constraint firstAttribute="trailing" secondItem="v46-Rb-Rvh" secondAttribute="trailing" id="qGK-sd-yM1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1b0-2h-zLy" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="0NW-86-gWm"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="1b0-2h-zLy" secondAttribute="trailing" id="Caz-zV-KPS"/>
+                            <constraint firstItem="xWL-OR-4dx" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="ITZ-ky-U9r"/>
                             <constraint firstItem="xWL-OR-4dx" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" constant="-6" id="K1H-ex-Hv4"/>
                             <constraint firstAttribute="bottom" secondItem="1b0-2h-zLy" secondAttribute="bottom" constant="-140" id="KFC-pD-4en"/>
-                            <constraint firstItem="xWL-OR-4dx" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" constant="20" id="bWR-nq-iYI"/>
+                            <constraint firstItem="qpY-oL-Agt" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="50" id="XP7-Bn-LhD"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="qpY-oL-Agt" secondAttribute="trailing" constant="6" id="XZD-OC-Udv"/>
+                            <constraint firstItem="qpY-oL-Agt" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="6" id="cCi-oz-zFE"/>
                             <constraint firstItem="xWL-OR-4dx" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="6" id="iIb-g0-9Ms"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Map" image="Map Icon" selectedImage="Map Icon" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="containerViewForSearchTableView" destination="qpY-oL-Agt" id="AHd-27-hRc"/>
                         <outlet property="descriptionTitleLabel" destination="b86-GY-yWW" id="WIS-2C-0R0"/>
                         <outlet property="directionsViewTemporary" destination="jYR-Es-YiF" id="MBC-Ob-7AS"/>
                         <outlet property="greenSliderPlaceView" destination="Y2d-xh-8pu" id="gdq-yc-CQB"/>
@@ -459,6 +541,7 @@
                         <outlet property="placeViewTwo" destination="hdW-go-Q1q" id="jqm-ez-7cH"/>
                         <outlet property="searchBar" destination="1dR-wT-LXg" id="wdR-ga-eXu"/>
                         <outlet property="searchDisplayController" destination="Yzq-Br-yZs" id="Zhf-Xh-RVi"/>
+                        <outlet property="searchTableView" destination="v46-Rb-Rvh" id="UhU-kr-b5R"/>
                         <outlet property="tubeButtonView" destination="xWL-OR-4dx" id="Ji0-8s-6e5"/>
                     </connections>
                 </viewController>
@@ -1049,6 +1132,7 @@
         <image name="London Icons" width="3751" height="2500"/>
         <image name="Map Icon" width="28" height="25"/>
         <image name="More info button" width="111" height="25"/>
+        <image name="Museum" width="27" height="27"/>
         <image name="Profile BG" width="1242" height="2450"/>
         <image name="Remove(long)" width="187" height="25"/>
         <image name="TableView BG" width="1863" height="3312"/>
@@ -1056,6 +1140,6 @@
         <image name="profile icon" width="27" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7QL-yw-tm9"/>
+        <segue reference="slf-0j-vsa"/>
     </inferredMetricsTieBreakers>
 </document>

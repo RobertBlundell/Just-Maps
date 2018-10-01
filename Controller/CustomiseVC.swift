@@ -101,7 +101,7 @@ class CustomizeVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         if segmentPlaces.selectedSegmentIndex == 0 {
             for place in allPlaces {
-                let placeCell = placesTableView.cellForRow(at: button.indexPath ) as? PlaceCell
+                let placeCell = placesTableView.cellForRow(at: button.indexPath) as? PlaceCell
                 if placeCell?.placeName.text == place.title {
                     segueSelectedPlace = place
                     performSegue(withIdentifier: "showPlaceDetailsVC", sender: self.placesTableView)

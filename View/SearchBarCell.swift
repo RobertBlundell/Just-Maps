@@ -11,7 +11,7 @@ import UIKit
 class SearchBarCell: UITableViewCell {
 
     @IBOutlet weak var searchCellIcon: UIImageView!
-    @IBOutlet weak var searchCellTitleButton: UIButton!
+    @IBOutlet weak var searchCellTitleButton: IndexButton!
     
 
     func configureSearchCell (cell: SearchBarCell, indexPath: IndexPath, array: [Place]) {
@@ -26,6 +26,7 @@ class SearchBarCell: UITableViewCell {
         
         cell.searchCellTitleButton.setTitle(array[indexPath.row].title, for: .normal)
         cell.backgroundColor = UIColor.clear
+        cell.searchCellTitleButton.indexPath = indexPath
     }
     
 }

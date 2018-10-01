@@ -29,6 +29,7 @@ class MyMapVC: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITabl
     @IBOutlet weak var locationSelectorButton: UIButton!
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var containerViewForSearchTableView: UIView!
+    @IBOutlet weak var containerViewForSearchTableViewHeight: NSLayoutConstraint!
     
     
     private var placeSelectedMap: Place!
@@ -72,7 +73,6 @@ class MyMapVC: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITabl
         self.view.bringSubviewToFront(placeView)
         self.view.bringSubviewToFront(tubeButtonView)
         self.view.bringSubviewToFront(containerViewForSearchTableView)
-        containerViewForSearchTableView.addBlurEffectNormalView()
         
         //Offline Maps:
         
@@ -139,6 +139,7 @@ class MyMapVC: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITabl
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         containerViewForSearchTableView.isHidden = false
+        // Weird dynamics for when tableview appears: after Editing or after text is input into searchbar?? Two things activate it right now
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -149,13 +150,57 @@ class MyMapVC: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITabl
         if searchBar.text == "" || searchBar.text == nil {
             insearchmode = false
             searchTableView.reloadData()
-            
+            styleViewForTable()
         } else {
             insearchmode = true
             
             let lower = searchBar.text?.lowercased()
             allPlacesSearched = allPlaces.filter({$0.title.localizedStandardRange(of: lower!) != nil})
             searchTableView.reloadData()
+            styleViewForTable()
+        }
+    }
+    
+    
+    @IBAction func searchButtonPressed(_ button: IndexButton) {
+        if insearchmode{
+//            print(button.indexPath.row)
+            let placeSearch = allPlacesSearched[button.indexPath.row]
+            let latitude: CLLocationDegrees = placeSearch.latitude
+            let longitude: CLLocationDegrees = placeSearch.longitude
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            mapView.setCenter(coordinate, animated: true)
+            searchBar.text = ""
+            containerViewForSearchTableView.isHidden = true
+            defaults.set(true, forKey: placeSearch.title)
+            reloadAnnotations()
+            selectAnnotation(mapView: mapView, place: placeSearch)
+        } else {
+            let placeSearch = allPlaces[button.indexPath.row]
+            let latitude = placeSearch.latitude
+            let longitude = placeSearch.longitude
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            mapView.setCenter(coordinate, animated: true)
+            searchBar.text = ""
+            containerViewForSearchTableView.isHidden = true
+            defaults.set(true, forKey: placeSearch.title)
+            reloadAnnotations()
+            selectAnnotation(mapView: mapView, place: placeSearch)
+        }
+    }
+    
+    func styleViewForTable () {
+        if insearchmode{
+            containerViewForSearchTableView.isHidden = false
+            let tableCount = allPlacesSearched.count
+            if tableCount < 5 {
+                containerViewForSearchTableViewHeight.constant = CGFloat(tableCount * 40 - 1)
+            } else {
+                containerViewForSearchTableViewHeight.constant = CGFloat(199)
+            }
+        } else {
+            containerViewForSearchTableViewHeight.constant = CGFloat(199)
+            containerViewForSearchTableView.isHidden = true
         }
     }
     
@@ -225,39 +270,57 @@ class MyMapVC: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITabl
 
     
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        
-        //Create a updateSLideGraphics function
-        //On selection in the tableView, slideGraphics should change as well
-        //Also make sure placeSelectedMap gets changed as well
-        // Or instead do two things: One center map on selected place Two click on center of screen
-        placeViewToBottom.constant = 34
-        UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
-        let viewSquareImage = (annotation as? JustMapsPointAnnotation)?.place.placeImage
-        placePopupImage.image = viewSquareImage
-        let placeTitle = (annotation as? JustMapsPointAnnotation)?.place.title
-        placeTitleLabel.text = placeTitle
-        descriptionTitleLabel.text = (annotation as? JustMapsPointAnnotation)?.place.placeDescription
-        
-        if defaults.bool(forKey: placeTitle!) == true {
-            locationSelectorButton.setImage(#imageLiteral(resourceName: "Remove(long)"), for: .normal)
-        } else { locationSelectorButton.setImage(#imageLiteral(resourceName: "AddToMap(long)"), for: .normal) }
-        //previous stuff can go in a updateSLideGraphics function
-        
-        
-        let placeAnnotation = annotation as? JustMapsPointAnnotation
-        placeSelectedMap = placeAnnotation?.place
-        
-        let temporarylatitude = placeAnnotation?.place.latitude
-        let temporarylongitude = placeAnnotation?.place.longitude
-        temporaryAnnotation = MGLPointAnnotation()
-        temporaryAnnotation.coordinate = CLLocationCoordinate2D(latitude: temporarylatitude!, longitude: temporarylongitude!)
-        mapView.addAnnotation(temporaryAnnotation)
+        selectAnnotation(mapView: mapView, place: (annotation as? JustMapsPointAnnotation)?.place ?? allPlaces[0])
+//        placeViewToBottom.constant = 34
+//        UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
+//        let viewSquareImage = (annotation as? JustMapsPointAnnotation)?.place.placeImage
+//        placePopupImage.image = viewSquareImage
+//        let placeTitle = (annotation as? JustMapsPointAnnotation)?.place.title
+//        placeTitleLabel.text = placeTitle
+//        descriptionTitleLabel.text = (annotation as? JustMapsPointAnnotation)?.place.placeDescription
+//
+//        if defaults.bool(forKey: placeTitle!) == true {
+//            locationSelectorButton.setImage(#imageLiteral(resourceName: "Remove(long)"), for: .normal)
+//        } else { locationSelectorButton.setImage(#imageLiteral(resourceName: "AddToMap(long)"), for: .normal) }
+//
+//
+//        let placeAnnotation = annotation as? JustMapsPointAnnotation
+//        placeSelectedMap = placeAnnotation?.place
+//
+//        let temporarylatitude = placeAnnotation?.place.latitude
+//        let temporarylongitude = placeAnnotation?.place.longitude
+//        temporaryAnnotation = MGLPointAnnotation()
+//        temporaryAnnotation.coordinate = CLLocationCoordinate2D(latitude: temporarylatitude!, longitude: temporarylongitude!)
+//        mapView.addAnnotation(temporaryAnnotation)
     }
     
     func mapView(_ mapView: MGLMapView, didDeselect annotation: MGLAnnotation) {
         placeViewToBottom.constant = -140
         UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
         mapView.removeAnnotation(temporaryAnnotation)
+    }
+    
+    func selectAnnotation(mapView: MGLMapView, place: Place) {
+        placeViewToBottom.constant = 34
+        UIView.animate(withDuration: 0.25, animations: {self.view.layoutIfNeeded()})
+        let viewSquareImage = place.placeImage
+        placePopupImage.image = viewSquareImage
+        let placeTitle = place.title
+        placeTitleLabel.text = placeTitle
+        descriptionTitleLabel.text = place.placeDescription
+        
+        if defaults.bool(forKey: placeTitle) == true {
+            locationSelectorButton.setImage(#imageLiteral(resourceName: "Remove(long)"), for: .normal)
+        } else { locationSelectorButton.setImage(#imageLiteral(resourceName: "AddToMap(long)"), for: .normal) }
+        
+        
+        placeSelectedMap = place
+        
+        let temporarylatitude = place.latitude
+        let temporarylongitude = place.longitude
+        temporaryAnnotation = MGLPointAnnotation()
+        temporaryAnnotation.coordinate = CLLocationCoordinate2D(latitude: temporarylatitude, longitude: temporarylongitude)
+        mapView.addAnnotation(temporaryAnnotation)
     }
 
 
